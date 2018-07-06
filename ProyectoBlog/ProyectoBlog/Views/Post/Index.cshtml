@@ -1,0 +1,32 @@
+﻿@model List<ProyectoBlog.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Perros</h2>
+<h6>@Html.ActionLink("+Nuevo Post", "Add")</h6>
+
+@foreach (var post in Model)
+{
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <td>@post.Title</td>
+                <td>@Html.ActionLink("Editar", "Edit", new { id= post.Id})</td>
+                <td>@Html.ActionLink("Eliminar", "Delete", new { id=post.Id})</td>
+            </tr>
+            <tr>
+                <td>@post.CategoryName</td>
+            </tr>
+            <tr>
+                <td>@post.Fecha.ToString("dd-MM-yyyy")</td>
+            </tr>
+        </thead>
+    </table>
+
+}
+
+
